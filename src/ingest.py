@@ -12,7 +12,8 @@ API_KEY = os.getenv("AESO_API_KEY")
 POOL_PRICE_URL = "https://apimgw.aeso.ca/public/poolprice-api/v1.1/price/poolPrice"
 AIL_URL = "https://apimgw.aeso.ca/public/actualforecast-api/v1/load/albertaInternalLoad"
 GEN_CAP_URL = "https://apimgw.aeso.ca/public/aiesgencapacity-api/v1/AIESGenCapacity"
-RAW_DATA_DIR = "data/raw"
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+RAW_DATA_DIR = os.path.join(BASE_DIR, "data", "raw")
 
 def _fetch_and_save(url, target_date, file_prefix):
     """ Helper function to fetch AESO endpoint data for a single date and write to raw JSON"""
